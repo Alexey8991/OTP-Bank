@@ -33,6 +33,7 @@ public class HomePage extends BasePage implements Pages {
     }
 
     public ProjectPage clickOnSearchResultProject() {
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         searchResult.click();
         return new ProjectPage(driver);
     }
