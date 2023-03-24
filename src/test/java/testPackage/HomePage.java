@@ -8,25 +8,33 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
-public class homePage extends basePage implements pages {
+public class HomePage extends BasePage implements Pages {
 
     @FindBy(xpath = "//input[@class=\"form-control js-site-search-focus header-search-input jump-to-field js-jump-to-field\"]")
     private WebElement searchBar;
 
-    public homePage(WebDriver driver) {
+    @FindBy(xpath ="//a[@href=\"/Alexey8991/HT_2\"]")
+    private WebElement searchResult;
+
+    public HomePage(WebDriver driver) {
         super(driver);
         PageFactory.initElements(this.driver, this);
     }
 
-    public homePage typeProjectNameInSearchBar(String nameProject){
+    public HomePage typeProjectNameInSearchBar(String nameProject){
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         searchBar.sendKeys(nameProject);
-        return new homePage(driver);
+        return new HomePage(driver);
     }
 
-    public homePage searchAfterFiltering() {
+    public HomePage searchAfterFiltering() {
         searchBar.sendKeys(Keys.ENTER);
-        return new homePage(driver);
+        return new HomePage(driver);
+    }
+
+    public ProjectPage clickOnSearchResultProject() {
+        searchResult.click();
+        return new ProjectPage(driver);
     }
 
     @Override
