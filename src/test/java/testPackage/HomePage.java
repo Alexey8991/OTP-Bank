@@ -13,7 +13,8 @@ public class HomePage extends BasePage implements Pages {
     @FindBy(xpath = "//input[@class=\"form-control js-site-search-focus header-search-input jump-to-field js-jump-to-field\"]")
     private WebElement searchBar;
 
-    @FindBy(xpath ="//a[@href=\"/Alexey8991/HT_2\"]")
+    //@FindBy(xpath ="//a[@href=\"/Alexey8991/HT_2\"]")
+    @FindBy(xpath = "//div[@class=\"f4 text-normal\"]")
     private WebElement searchResult;
 
     public HomePage(WebDriver driver) {
