@@ -1,0 +1,13 @@
+package testPackage;
+
+import org.openqa.selenium.WebDriver;
+
+public abstract class basePage {
+
+    protected WebDriver driver;
+
+    public basePage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+}
